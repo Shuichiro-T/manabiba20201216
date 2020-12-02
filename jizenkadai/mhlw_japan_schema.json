@@ -1,0 +1,7 @@
+[
+  {"name": "date", "type": "date", "mode": "required"},
+  {"name": "pcr_positive_daily", "type": "string", "mode": "required"},
+  {"name": "pcr_tested_daily", "type": "integer", "mode": "required"},
+  {"name": "cases_total", "type": "integer", "mode": "required"},
+  {"name": "death_total", "type": "integer", "mode": "required"}
+]

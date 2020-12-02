@@ -5,8 +5,17 @@
 
 https://www.mhlw.go.jp/stf/covid-19/open-data.html
 
+## 注意事項
+ * 各サービスを利用する際にAPIを有効化する必要があります。
+ * Cloud Shellで操作を行います。
+ * 以下のコマンドでプロジェクトを指定してください。
+ ```shell
+ gcloud config set project [PROJECT_ID]
+ ```
 
 ## BigQueryにテーブルを作成する
+
+### 事前準備
 
  * PCR検査陽性者数ファイルのダウンロード
 
@@ -51,8 +60,45 @@ https://www.mhlw.go.jp/stf/covid-19/open-data.html
  rm temp*.csv
  ```
 
+ * 日付のフォーマットを整える
+
+ ```shell
+ sed "s/\//\-/g" data.csv > data2.csv
+ mv data2.csv data.csv
+ ```
 
   * ファイルの確認をする
    ```shell
  head data.csv
  ```
+
+ ### テーブルの作成
+  
+  * データセットの作成
+
+ ```shell
+ bq mk COVID19
+ ```
+
+   * テーブルの作成
+
+ ```shell
+ bq load --skip_leading_rows=1 --source_format=CSV COVID19.MHLW_JAPAN data.csv mhlw_japan_schema.json
+ ```
+
+
+   * データの確認
+
+ ```shell
+ bq show COVID19.MHLW_JAPAN
+ ```
+
+ ## アプリケーションをデプロイする
+
+ ### ディレクトリの移動
+
+
+ ```shell
+ cd app
+ ```
+
