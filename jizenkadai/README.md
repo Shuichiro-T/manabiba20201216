@@ -97,8 +97,12 @@ https://www.mhlw.go.jp/stf/covid-19/open-data.html
 
  ### ディレクトリの移動
 
-
  ```shell
  cd app
  ```
 
+ ### デプロイする
+
+ ```shell
+ gcloud app deploy
+ ```
