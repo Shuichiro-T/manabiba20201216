@@ -21,7 +21,7 @@
     };
 
     var chartDatas = {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: [
                 {% for label in labels %}
@@ -30,6 +30,7 @@
             ],
             datasets: [{
                 label: 'PCR検査陽性者人数',
+                type: 'line',
                 backgroundColor: window.chartColors.red,
                 borderColor: window.chartColors.red,
                 yAxisID: 'y-axis-1',
@@ -41,9 +42,10 @@
                 fill: false,
             }, {
                 label: 'PCR検査人数',
+                type: 'line',
                 fill: false,
-                backgroundColor: window.chartColors.gley,
-                borderColor: window.chartColors.gley,
+                backgroundColor: window.chartColors.green,
+                borderColor: window.chartColors.green,
                 yAxisID: 'y-axis-2',
                 data: [
                     {% for data in datas[1] %}
@@ -52,6 +54,7 @@
                 ],
             }, {
                 label: '重症者数累計',
+                type: 'bar',
                 fill: false,
                 backgroundColor: window.chartColors.orange,
                 borderColor: window.chartColors.orange,
@@ -63,9 +66,10 @@
                 ],
             }, {
                 label: '死亡者数合計',
+                type: 'bar',
                 fill: false,
-                backgroundColor: window.chartColors.purple,
-                borderColor: window.chartColors.purple,
+                backgroundColor: window.chartColors.grey,
+                borderColor: window.chartColors.grey,
                 yAxisID: 'y-axis-1',
                 data: [
                     {% for data in datas[3] %}
