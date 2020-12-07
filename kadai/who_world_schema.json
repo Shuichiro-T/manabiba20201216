@@ -1,0 +1,10 @@
+[
+  {"name": "date_reported", "type": "date", "mode": "required"},
+  {"name": "country_code", "type": "string", "mode": "required"},
+  {"name": "country", "type": "string", "mode": "required"},
+  {"name": "who_region", "type": "string", "mode": "required"},
+  {"name": "new_cases", "type": "integer", "mode": "required"},
+  {"name": "cumulative_cases", "type": "integer", "mode": "required"},
+  {"name": "new_deaths", "type": "integer", "mode": "required"},
+  {"name": "cumulative_deaths", "type": "integer", "mode": "required"}
+]
